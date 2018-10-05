@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--FastFoodFinder-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="fastfood_finder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJo-ze-hbM">
+                                <rect key="frame" x="118" y="380" width="139" height="52"/>
+                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="139" id="HPy-xn-zHg"/>
+                                    <constraint firstAttribute="height" constant="52" id="YQF-U8-qYH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Find Food">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="findFoodButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="al1-Up-XEb"/>
+                                    <segue destination="ysO-u1-IOd" kind="show" identifier="InitialSegue" id="gyJ-h5-q63"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jJo-ze-hbM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0di-QJ-YrI"/>
+                            <constraint firstItem="jJo-ze-hbM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Qei-bG-3gY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="FastFoodFinder" id="RCE-GU-JIn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1072.8" y="133.00492610837438"/>
+        </scene>
+        <!--Display View Controller-->
+        <scene sceneID="zH9-di-IQ9">
+            <objects>
+                <viewController id="ysO-u1-IOd" customClass="DisplayViewController" customModule="fastfood_finder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="r7k-Zp-dg6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Rh6-ub-n0S">
+                                <rect key="frame" x="0.0" y="78" width="375" height="268"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="268" id="JKh-6G-685"/>
+                                </constraints>
+                            </mapView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YFm-qN-0RK">
+                                <rect key="frame" x="0.0" y="34" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="1p2-FT-U8s"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="FastFoodFinder" id="AT1-uN-40J">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="o9G-cd-DdN">
+                                            <connections>
+                                                <action selector="cancelButtonTapped:" destination="ysO-u1-IOd" id="kFw-wp-sKe"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zwr-Rb-ZfA">
+                                <rect key="frame" x="0.0" y="346" width="375" height="432"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="432" id="YWB-pA-wzP"/>
+                                </constraints>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YFm-qN-0RK" firstAttribute="top" secondItem="r7k-Zp-dg6" secondAttribute="top" constant="34" id="4e2-Um-Atn"/>
+                            <constraint firstItem="Rh6-ub-n0S" firstAttribute="trailing" secondItem="74Y-ne-ZRl" secondAttribute="trailing" id="LHc-6M-Hkn"/>
+                            <constraint firstItem="YFm-qN-0RK" firstAttribute="leading" secondItem="74Y-ne-ZRl" secondAttribute="leading" id="NPd-8r-5Kp"/>
+                            <constraint firstItem="Zwr-Rb-ZfA" firstAttribute="trailing" secondItem="74Y-ne-ZRl" secondAttribute="trailing" id="Tov-sM-uHa"/>
+                            <constraint firstItem="Rh6-ub-n0S" firstAttribute="leading" secondItem="74Y-ne-ZRl" secondAttribute="leading" id="bMg-UM-Faj"/>
+                            <constraint firstItem="Zwr-Rb-ZfA" firstAttribute="leading" secondItem="74Y-ne-ZRl" secondAttribute="leading" id="qXU-2d-WbZ"/>
+                            <constraint firstItem="YFm-qN-0RK" firstAttribute="trailing" secondItem="74Y-ne-ZRl" secondAttribute="trailing" id="rYe-8r-72M"/>
+                            <constraint firstItem="Rh6-ub-n0S" firstAttribute="top" secondItem="YFm-qN-0RK" secondAttribute="bottom" id="tC2-mU-4sA"/>
+                            <constraint firstItem="Zwr-Rb-ZfA" firstAttribute="top" secondItem="Rh6-ub-n0S" secondAttribute="bottom" id="uPn-jf-N3u"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="74Y-ne-ZRl"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="waN-52-HsJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1808.8" y="133.00492610837438"/>
+        </scene>
+    </scenes>
+</document>
