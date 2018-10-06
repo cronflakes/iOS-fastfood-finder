@@ -13,6 +13,9 @@ import MapKit
 class DisplayViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var tableView: UITableView!
+    
+    let slideOutBar = SlideOutBar()
     
     private var locationManager = CLLocationManager()
     private var initialLocation: CLLocationCoordinate2D?
@@ -20,6 +23,9 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -50,7 +56,29 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate {
 
     
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
+        locationManager.stopUpdatingLocation()
         dismiss(animated: true, completion: nil)
+    }
+    
+    
+}
+
+
+extension DisplayViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        slideOutBar.placeTapped()
     }
     
     

@@ -16,6 +16,7 @@
 		8ACA08B221681AC700FD7C36 /* fastfood_finderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACA08B121681AC700FD7C36 /* fastfood_finderUITests.swift */; };
 		8ACA08C021681BC500FD7C36 /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACA08BF21681BC500FD7C36 /* DisplayViewController.swift */; };
 		8ACA08C42168406100FD7C36 /* RootClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACA08C32168406100FD7C36 /* RootClass.swift */; };
+		8ACA08C62168F7DA00FD7C36 /* SlideOutBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACA08C52168F7DA00FD7C36 /* SlideOutBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		8ACA08B321681AC700FD7C36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8ACA08BF21681BC500FD7C36 /* DisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
 		8ACA08C32168406100FD7C36 /* RootClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootClass.swift; sourceTree = "<group>"; };
+		8ACA08C52168F7DA00FD7C36 /* SlideOutBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOutBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				8ACA089121681AC500FD7C36 /* AppDelegate.swift */,
+				8ACA08C52168F7DA00FD7C36 /* SlideOutBar.swift */,
 				8ACA089321681AC500FD7C36 /* ViewController.swift */,
 				8ACA08BF21681BC500FD7C36 /* DisplayViewController.swift */,
 				8ACA089521681AC500FD7C36 /* Main.storyboard */,
@@ -265,6 +268,7 @@
 				8ACA08C42168406100FD7C36 /* RootClass.swift in Sources */,
 				8ACA089421681AC500FD7C36 /* ViewController.swift in Sources */,
 				8ACA08C021681BC500FD7C36 /* DisplayViewController.swift in Sources */,
+				8ACA08C62168F7DA00FD7C36 /* SlideOutBar.swift in Sources */,
 				8ACA089221681AC500FD7C36 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
