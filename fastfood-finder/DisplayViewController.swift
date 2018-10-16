@@ -66,8 +66,6 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate {
 
 extension DisplayViewController: UITableViewDataSource, UITableViewDelegate {
     
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }

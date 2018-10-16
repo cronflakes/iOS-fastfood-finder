@@ -24,8 +24,8 @@
                                     <constraint firstAttribute="height" constant="56" id="JCw-Uy-nWf"/>
                                     <constraint firstAttribute="width" constant="148" id="eYO-ks-jvq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="18"/>
-                                <state key="normal" title="Find Food">
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                <state key="normal" title="find food">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -39,9 +39,21 @@
                                     <segue destination="ysO-u1-IOd" kind="show" identifier="InitialSegue" id="gyJ-h5-q63"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fastFoodFinder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CM1-yP-15S">
+                                <rect key="frame" x="76" y="242" width="223" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="223" id="Aua-qW-64E"/>
+                                    <constraint firstAttribute="height" constant="44" id="eJ9-iA-BsU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="32"/>
+                                <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="CM1-yP-15S" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g48-Nk-OH3"/>
+                            <constraint firstItem="CM1-yP-15S" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="198" id="g7A-hV-4vC"/>
                             <constraint firstItem="jJo-ze-hbM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lNH-YN-VzI"/>
                             <constraint firstItem="jJo-ze-hbM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="uxv-Q7-1Ye"/>
                         </constraints>
