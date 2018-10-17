@@ -22,7 +22,7 @@ class SlideOutBar: NSObject {
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .green
+        collectionView.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 0.736515411)
         return collectionView
     }()
     
@@ -44,7 +44,7 @@ class SlideOutBar: NSObject {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Burger King"
-        label.font = UIFont(name: "Avenir Next", size: 14)
+        label.font = UIFont(name: "Avenir Next", size: 18)
         return label
     }()
     
@@ -52,7 +52,7 @@ class SlideOutBar: NSObject {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "12345 S Lindbergh Blvd"
-        label.font = UIFont(name: "Avenir Next", size: 10)
+        label.font = UIFont(name: "Avenir Next", size: 12)
         return label
     }()
     
@@ -67,12 +67,14 @@ class SlideOutBar: NSObject {
         collectionView.register(MapCollectionViewCell.self, forCellWithReuseIdentifier: "MapCellID")
         collectionView.register(HoursCollectionViewCell.self, forCellWithReuseIdentifier: "HoursCellID")
         collectionView.register(RatingsCollectionViewCell.self, forCellWithReuseIdentifier: "RatingsCellID")
+        collectionView.register(PopularCollectionViewCell.self, forCellWithReuseIdentifier: "PopularCellID")
+        collectionView.register(LowestPriceCollectionViewCell.self, forCellWithReuseIdentifier: "LowestPriceCellID")
         
         header.addSubview(logo)
         logo.centerYAnchor.constraint(equalTo: header.centerYAnchor).isActive = true
         logo.centerXAnchor.constraint(equalTo: header.centerXAnchor).isActive = true
-        logo.widthAnchor.constraint(equalToConstant: 70).isActive = true
-        logo.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        logo.widthAnchor.constraint(equalToConstant: 90).isActive = true
+        logo.heightAnchor.constraint(equalToConstant: 90).isActive = true
         
         header.addSubview(nameLabel)
         nameLabel.centerXAnchor.constraint(equalTo: header.centerXAnchor).isActive = true
@@ -142,7 +144,7 @@ class SlideOutBar: NSObject {
 
 extension SlideOutBar: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10;
+        return 6;
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -158,6 +160,10 @@ extension SlideOutBar: UICollectionViewDelegateFlowLayout, UICollectionViewDeleg
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HoursCellID", for: indexPath)
         case 3:
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RatingsCellID", for: indexPath)
+        case 4:
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularCellID", for: indexPath)
+        case 5:
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LowestPriceCellID", for: indexPath)
         default:
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhoneCellID", for: indexPath)
         }
@@ -167,7 +173,21 @@ extension SlideOutBar: UICollectionViewDelegateFlowLayout, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 70)
+        
+        
+        
+        switch(indexPath.row) {
+        case 4:
+            return CGSize(width: collectionView.frame.width, height: 205)
+        case 5:
+            return CGSize(width: collectionView.frame.width, height: 205)
+        default:
+            return CGSize(width: collectionView.frame.width, height: 50)
+        }
+        
+        
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -182,7 +202,7 @@ extension SlideOutBar: UICollectionViewDelegateFlowLayout, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 2.0
+        return 1.5
     }
     
 }

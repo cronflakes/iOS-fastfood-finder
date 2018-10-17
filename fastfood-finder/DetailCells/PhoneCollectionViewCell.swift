@@ -54,8 +54,8 @@ class PhoneCollectionViewCell: UICollectionViewCell {
         addSubview(phoneLogo)
         phoneLogo.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         phoneLogo.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true
-        phoneLogo.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        phoneLogo.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        phoneLogo.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        phoneLogo.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         addSubview(phoneLabel)
         phoneLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true

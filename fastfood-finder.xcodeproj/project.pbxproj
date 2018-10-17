@@ -21,6 +21,10 @@
 		8ACA0AED216E5D3C00FD7C36 /* PhoneCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACA0AEC216E5D3C00FD7C36 /* PhoneCollectionViewCell.swift */; };
 		8ACA0AEF216E648000FD7C36 /* MapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACA0AEE216E648000FD7C36 /* MapCollectionViewCell.swift */; };
 		8AD2929621765733007A105D /* RatingsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD2929521765733007A105D /* RatingsCollectionViewCell.swift */; };
+		8AD292982177BDE2007A105D /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD292972177BDE2007A105D /* PopularCollectionViewCell.swift */; };
+		8AD2929A2177C11E007A105D /* PopularFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD292992177C11E007A105D /* PopularFoodCell.swift */; };
+		8AD2929D2177E16B007A105D /* LowestPriceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD2929C2177E16A007A105D /* LowestPriceCollectionViewCell.swift */; };
+		8AD292A02177E383007A105D /* LowestPriceFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD2929F2177E383007A105D /* LowestPriceFoodCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,10 @@
 		8ACA0AEC216E5D3C00FD7C36 /* PhoneCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCollectionViewCell.swift; sourceTree = "<group>"; };
 		8ACA0AEE216E648000FD7C36 /* MapCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCollectionViewCell.swift; sourceTree = "<group>"; };
 		8AD2929521765733007A105D /* RatingsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsCollectionViewCell.swift; sourceTree = "<group>"; };
+		8AD292972177BDE2007A105D /* PopularCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewCell.swift; sourceTree = "<group>"; };
+		8AD292992177C11E007A105D /* PopularFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularFoodCell.swift; sourceTree = "<group>"; };
+		8AD2929C2177E16A007A105D /* LowestPriceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowestPriceCollectionViewCell.swift; sourceTree = "<group>"; };
+		8AD2929F2177E383007A105D /* LowestPriceFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowestPriceFoodCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +101,9 @@
 			children = (
 				8ACA0AEE216E648000FD7C36 /* MapCollectionViewCell.swift */,
 				8A0E11982176496600C531EC /* HoursCollectionViewCell.swift */,
+				8AD2929B2177E0E6007A105D /* PopularFoodGroup */,
 				8AD2929521765733007A105D /* RatingsCollectionViewCell.swift */,
+				8AD2929E2177E369007A105D /* LowestPriceFoodGroup */,
 				8ACA0AEC216E5D3C00FD7C36 /* PhoneCollectionViewCell.swift */,
 			);
 			path = DetailCells;
@@ -152,6 +162,24 @@
 				8ACA08B321681AC700FD7C36 /* Info.plist */,
 			);
 			path = "fastfood-finderUITests";
+			sourceTree = "<group>";
+		};
+		8AD2929B2177E0E6007A105D /* PopularFoodGroup */ = {
+			isa = PBXGroup;
+			children = (
+				8AD292972177BDE2007A105D /* PopularCollectionViewCell.swift */,
+				8AD292992177C11E007A105D /* PopularFoodCell.swift */,
+			);
+			path = PopularFoodGroup;
+			sourceTree = "<group>";
+		};
+		8AD2929E2177E369007A105D /* LowestPriceFoodGroup */ = {
+			isa = PBXGroup;
+			children = (
+				8AD2929C2177E16A007A105D /* LowestPriceCollectionViewCell.swift */,
+				8AD2929F2177E383007A105D /* LowestPriceFoodCell.swift */,
+			);
+			path = LowestPriceFoodGroup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,14 +313,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AD2929A2177C11E007A105D /* PopularFoodCell.swift in Sources */,
 				8A0E11992176496600C531EC /* HoursCollectionViewCell.swift in Sources */,
 				8ACA0AEF216E648000FD7C36 /* MapCollectionViewCell.swift in Sources */,
+				8AD292982177BDE2007A105D /* PopularCollectionViewCell.swift in Sources */,
+				8AD292A02177E383007A105D /* LowestPriceFoodCell.swift in Sources */,
 				8ACA08C42168406100FD7C36 /* RootClass.swift in Sources */,
 				8ACA089421681AC500FD7C36 /* ViewController.swift in Sources */,
 				8ACA08C021681BC500FD7C36 /* DisplayViewController.swift in Sources */,
 				8AD2929621765733007A105D /* RatingsCollectionViewCell.swift in Sources */,
 				8ACA0AED216E5D3C00FD7C36 /* PhoneCollectionViewCell.swift in Sources */,
 				8ACA08C62168F7DA00FD7C36 /* SlideOutBar.swift in Sources */,
+				8AD2929D2177E16B007A105D /* LowestPriceCollectionViewCell.swift in Sources */,
 				8ACA089221681AC500FD7C36 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

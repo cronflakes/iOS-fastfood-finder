@@ -46,8 +46,8 @@ class HoursCollectionViewCell: UICollectionViewCell {
         addSubview(hoursLogo)
         hoursLogo.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         hoursLogo.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true
-        hoursLogo.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        hoursLogo.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        hoursLogo.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        hoursLogo.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         addSubview(hoursLabel)
         hoursLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true

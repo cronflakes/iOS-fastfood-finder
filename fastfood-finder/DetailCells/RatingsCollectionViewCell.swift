@@ -50,8 +50,8 @@ class RatingsCollectionViewCell: UICollectionViewCell {
         addSubview(ratingsLogo)
         ratingsLogo.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         ratingsLogo.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true
-        ratingsLogo.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        ratingsLogo.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        ratingsLogo.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        ratingsLogo.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         addSubview(ratingsLabel)
         ratingsLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true

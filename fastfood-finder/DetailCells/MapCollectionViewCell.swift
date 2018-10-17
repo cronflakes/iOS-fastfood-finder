@@ -47,11 +47,11 @@ class MapCollectionViewCell: UICollectionViewCell {
         
         backgroundColor = .white    
         
-        addSubview(mapLogo  )
+        addSubview(mapLogo)
         mapLogo.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         mapLogo.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true
-        mapLogo.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        mapLogo.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        mapLogo.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        mapLogo.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         addSubview(addressLabel)
         addressLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
