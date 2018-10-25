@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8A0E11992176496600C531EC /* HoursCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E11982176496600C531EC /* HoursCollectionViewCell.swift */; };
+		8A81D2032182763C00B5900D /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A81D2022182763C00B5900D /* PlaceTableViewCell.swift */; };
+		8A81D205218276C200B5900D /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A81D204218276C200B5900D /* Place.swift */; };
+		8A81D2072182782800B5900D /* DVCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A81D2062182782800B5900D /* DVCExtensions.swift */; };
 		8ACA089221681AC500FD7C36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACA089121681AC500FD7C36 /* AppDelegate.swift */; };
 		8ACA089421681AC500FD7C36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACA089321681AC500FD7C36 /* ViewController.swift */; };
 		8ACA089721681AC500FD7C36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ACA089521681AC500FD7C36 /* Main.storyboard */; };
@@ -46,6 +49,9 @@
 
 /* Begin PBXFileReference section */
 		8A0E11982176496600C531EC /* HoursCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoursCollectionViewCell.swift; sourceTree = "<group>"; };
+		8A81D2022182763C00B5900D /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
+		8A81D204218276C200B5900D /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		8A81D2062182782800B5900D /* DVCExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DVCExtensions.swift; sourceTree = "<group>"; };
 		8ACA088E21681AC500FD7C36 /* fastfood-finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fastfood-finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ACA089121681AC500FD7C36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8ACA089321681AC500FD7C36 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +141,9 @@
 				8ACA089121681AC500FD7C36 /* AppDelegate.swift */,
 				8ACA08C52168F7DA00FD7C36 /* SlideOutBar.swift */,
 				8ACA089321681AC500FD7C36 /* ViewController.swift */,
+				8A81D2022182763C00B5900D /* PlaceTableViewCell.swift */,
+				8A81D204218276C200B5900D /* Place.swift */,
+				8A81D2062182782800B5900D /* DVCExtensions.swift */,
 				8ACA08BF21681BC500FD7C36 /* DisplayViewController.swift */,
 				8A0E1197217648D700C531EC /* DetailCells */,
 				8ACA089521681AC500FD7C36 /* Main.storyboard */,
@@ -316,12 +325,15 @@
 				8AD2929A2177C11E007A105D /* PopularFoodCell.swift in Sources */,
 				8A0E11992176496600C531EC /* HoursCollectionViewCell.swift in Sources */,
 				8ACA0AEF216E648000FD7C36 /* MapCollectionViewCell.swift in Sources */,
+				8A81D2032182763C00B5900D /* PlaceTableViewCell.swift in Sources */,
 				8AD292982177BDE2007A105D /* PopularCollectionViewCell.swift in Sources */,
 				8AD292A02177E383007A105D /* LowestPriceFoodCell.swift in Sources */,
 				8ACA08C42168406100FD7C36 /* RootClass.swift in Sources */,
 				8ACA089421681AC500FD7C36 /* ViewController.swift in Sources */,
 				8ACA08C021681BC500FD7C36 /* DisplayViewController.swift in Sources */,
+				8A81D205218276C200B5900D /* Place.swift in Sources */,
 				8AD2929621765733007A105D /* RatingsCollectionViewCell.swift in Sources */,
+				8A81D2072182782800B5900D /* DVCExtensions.swift in Sources */,
 				8ACA0AED216E5D3C00FD7C36 /* PhoneCollectionViewCell.swift in Sources */,
 				8ACA08C62168F7DA00FD7C36 /* SlideOutBar.swift in Sources */,
 				8AD2929D2177E16B007A105D /* LowestPriceCollectionViewCell.swift in Sources */,
