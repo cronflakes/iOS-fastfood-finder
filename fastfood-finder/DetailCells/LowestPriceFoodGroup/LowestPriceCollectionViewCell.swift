@@ -13,7 +13,7 @@ class LowestPriceCollectionViewCell: UICollectionViewCell {
     let sectionTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Lowest Price Items"
+        label.text = "Lowest Priced Items"
         label.font = UIFont(name: "Avenir Next", size: 16)
         label.backgroundColor = .white
         return label

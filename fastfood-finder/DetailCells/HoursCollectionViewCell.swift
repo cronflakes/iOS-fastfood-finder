@@ -28,7 +28,7 @@ class HoursCollectionViewCell: UICollectionViewCell {
     let hoursDescriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Open • Closes at 12 am"
+        label.text = "open • closes at 12 am"
         label.font = UIFont(name: "Avenir Next", size: 14)
         return label
     }()

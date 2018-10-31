@@ -13,7 +13,6 @@ class PopularFoodCell: UICollectionViewCell {
     let foodImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "chicfilaentree")
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 16
         imageView.layer.masksToBounds = true
@@ -24,7 +23,6 @@ class PopularFoodCell: UICollectionViewCell {
         
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Chicken Sandwich"
         label.font = UIFont(name: "Avenir Next", size: 14)
         return label
     }()
@@ -32,7 +30,6 @@ class PopularFoodCell: UICollectionViewCell {
     let foodPrice: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "$5.99"
         label.font = UIFont(name: "Avenir Next", size: 12)
         return label
     }()
@@ -43,11 +40,15 @@ class PopularFoodCell: UICollectionViewCell {
         setupDisplayCell()
     }
     
+    func setupItemsInformation(image: String, name: String, price: String) {
+        let uploadedImage = image
+        foodImage.image = getURLImage(image: uploadedImage)
+        foodLabel.text = name
+        foodPrice.text = "$\(price)"
+    }
+    
 
     func setupDisplayCell() {
-//        backgroundColor = .cyan
-        
-
         
         addSubview(foodImage)
         foodImage.topAnchor.constraint(equalTo: topAnchor, constant: 30).isActive = true
@@ -75,6 +76,22 @@ class PopularFoodCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
+    func getURLImage(image: String) -> UIImage {
+        var urlImage: UIImage?
+        let logo = image
+        if let url = NSURL(string: logo) {
+            if let data = NSData(contentsOf: url as URL) {
+                urlImage = UIImage(data: data as Data)
+            }
+        }
+        
+        if urlImage != nil {
+            return urlImage!
+        } else {
+            let imageNotFound = #imageLiteral(resourceName: "notFound")
+            return imageNotFound
+        }
+  
+    }
 
 }

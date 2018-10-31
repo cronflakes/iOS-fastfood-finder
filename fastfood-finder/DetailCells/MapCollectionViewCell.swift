@@ -10,6 +10,7 @@ import UIKit
 
 class MapCollectionViewCell: UICollectionViewCell {
     
+    
     let mapLogo: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -28,7 +29,6 @@ class MapCollectionViewCell: UICollectionViewCell {
     let addressLocationLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "12345 S Lindbergh Blvd"
         label.font = UIFont(name: "Avenir Next", size: 14)
         return label
     }()

@@ -10,6 +10,7 @@ import UIKit
 
 class PopularCollectionViewCell: UICollectionViewCell {
     
+    var place: Place?
     
     let sectionTitle: UILabel = {
         let label = UILabel()
@@ -78,8 +79,32 @@ extension PopularCollectionViewCell: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularFoodCellID", for: indexPath)
-        return cell
+
+        switch (indexPath.row) {
+            case 0:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularFoodCellID", for: indexPath) as! PopularFoodCell
+                cell.setupItemsInformation(image: (place?.popularItems[indexPath.row][1])!, name: (place?.popularItems[indexPath.row][0])!, price: (place?.popularItems[indexPath.row][2])!)
+                return cell
+            case 1:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularFoodCellID", for: indexPath) as! PopularFoodCell
+                cell.setupItemsInformation(image: (place?.popularItems[indexPath.row][1])!, name: (place?.popularItems[indexPath.row][0])!, price: (place?.popularItems[indexPath.row][2])!)
+                return cell
+            case 2:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularFoodCellID", for: indexPath) as! PopularFoodCell
+                cell.setupItemsInformation(image: (place?.popularItems[indexPath.row][1])!, name: (place?.popularItems[indexPath.row][0])!, price: (place?.popularItems[indexPath.row][2])!)
+                return cell
+            case 3:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularFoodCellID", for: indexPath) as! PopularFoodCell
+                cell.setupItemsInformation(image: (place?.popularItems[indexPath.row][1])!, name: (place?.popularItems[indexPath.row][0])!, price: (place?.popularItems[indexPath.row][2])!)
+                return cell
+            case 4:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularFoodCellID", for: indexPath) as! PopularFoodCell
+                cell.setupItemsInformation(image: (place?.popularItems[indexPath.row][1])!, name: (place?.popularItems[indexPath.row][0])!, price: (place?.popularItems[indexPath.row][2])!)
+                return cell
+            default:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularFoodCellID", for: indexPath)
+                return cell
+            }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

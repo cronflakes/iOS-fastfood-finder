@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 
+
 class SlideOutBar: NSObject {
     
     let backgroundShader = UIView()
@@ -36,14 +37,12 @@ class SlideOutBar: NSObject {
     let logo: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "bk")
         return imageView
     }()
     
     let nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Burger King"
         label.font = UIFont(name: "Avenir Next", size: 18)
         return label
     }()
@@ -51,13 +50,31 @@ class SlideOutBar: NSObject {
     let addressLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "12345 S Lindbergh Blvd"
         label.font = UIFont(name: "Avenir Next", size: 12)
         return label
     }()
     
+    
+    var place: Place? {
+        didSet {
+            if let pngLogo = place?.pngLogo {
+                logo.image = getURLImage(image: pngLogo)
+            }
+            
+            if let name = place?.title {
+                nameLabel.text = name
+            }
+            
+            if let address = place?.address {
+                addressLabel.text = address
+            }
+        }
+    }
+    
+    
     override init() {
         super.init()
+        
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -66,7 +83,6 @@ class SlideOutBar: NSObject {
         collectionView.register(PhoneCollectionViewCell.self, forCellWithReuseIdentifier: "PhoneCellID")
         collectionView.register(MapCollectionViewCell.self, forCellWithReuseIdentifier: "MapCellID")
         collectionView.register(HoursCollectionViewCell.self, forCellWithReuseIdentifier: "HoursCellID")
-        collectionView.register(RatingsCollectionViewCell.self, forCellWithReuseIdentifier: "RatingsCellID")
         collectionView.register(PopularCollectionViewCell.self, forCellWithReuseIdentifier: "PopularCellID")
         collectionView.register(LowestPriceCollectionViewCell.self, forCellWithReuseIdentifier: "LowestPriceCellID")
         
@@ -140,71 +156,20 @@ class SlideOutBar: NSObject {
     }
     
     
+    func getURLImage(image: String) -> UIImage {
+        var urlImage: UIImage?
+        let logo = image
+        if let url = NSURL(string: logo) {
+            if let data = NSData(contentsOf: url as URL) {
+                urlImage = UIImage(data: data as Data) //if the image is a broken link from mongoDB this will come up nil
+            }
+        }
+
+        return urlImage!
+    }
+    
 }
 
-extension SlideOutBar: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6;
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        var cell = UICollectionViewCell()
-    
-        switch(indexPath.row) {
-        case 0:
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhoneCellID", for: indexPath)
-        case 1:
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MapCellID", for: indexPath)
-        case 2:
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HoursCellID", for: indexPath)
-        case 3:
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RatingsCellID", for: indexPath)
-        case 4:
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularCellID", for: indexPath)
-        case 5:
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LowestPriceCellID", for: indexPath)
-        default:
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhoneCellID", for: indexPath)
-        }
-        
-        return cell
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        
-        
-        switch(indexPath.row) {
-        case 4:
-            return CGSize(width: collectionView.frame.width, height: 205)
-        case 5:
-            return CGSize(width: collectionView.frame.width, height: 205)
-        default:
-            return CGSize(width: collectionView.frame.width, height: 50)
-        }
-        
-        
-        
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch(indexPath.row) {
-        case 0:
-            openPhoneApp()
-        case 1:
-            openMapApp(lat: 38.6247, long: -90.1854)
-        default:
-            openPhoneApp()
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 1.5
-    }
-    
-}
+
 
 

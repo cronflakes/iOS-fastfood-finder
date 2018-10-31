@@ -10,7 +10,16 @@ import UIKit
 
 class PhoneCollectionViewCell: UICollectionViewCell {
     
+    var number: String?
     
+    var place: Place? {
+        didSet {
+            if let phoneNumber = place?.phone {
+                phoneNumberLabel.text = phoneNumber
+            }
+        }
+    }
+
     let phoneLogo: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -29,27 +38,23 @@ class PhoneCollectionViewCell: UICollectionViewCell {
     let phoneNumberLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "(314) 555- 1234"
         label.font = UIFont(name: "Avenir Next", size: 14)
         return label
     }()
     
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         
         setupCellDisplay()
     }
     
 
-    
-    
-    
-    
-    
+
     func setupCellDisplay() {
         backgroundColor = .white
+
+        
         
         addSubview(phoneLogo)
         phoneLogo.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
@@ -57,22 +62,24 @@ class PhoneCollectionViewCell: UICollectionViewCell {
         phoneLogo.widthAnchor.constraint(equalToConstant: 30).isActive = true
         phoneLogo.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
+        
         addSubview(phoneLabel)
         phoneLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         phoneLabel.leadingAnchor.constraint(equalTo: phoneLogo.trailingAnchor, constant: 15).isActive = true
         phoneLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
         phoneLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
+        
+        
         addSubview(phoneNumberLabel)
         phoneNumberLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         phoneNumberLabel.leadingAnchor.constraint(equalTo: phoneLabel.trailingAnchor, constant: 5).isActive = true
         phoneNumberLabel.widthAnchor.constraint(equalToConstant: 140).isActive = true
         phoneNumberLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
-        
+    
     }
     
-    
+   
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

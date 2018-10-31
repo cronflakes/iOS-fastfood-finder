@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import MapKit
 
-struct Place {
-    let name: String?
+class Place: NSObject, MKAnnotation {
+    let title: String?
     let logo: String?
     let pngLogo: String?
     let address: String?
@@ -21,20 +22,22 @@ struct Place {
     let hours: [String?]
     let popularItems: [[String?]]
     let budgetItems: [[String?]]
+    let coordinate: CLLocationCoordinate2D
     
-    init(name: String, logo: String, pngLogo: String, address: String, city: String, state: String, phone: String, latitude: String, longitude: String, hours: [String], popularItems: [[String]], budgetItems: [[String]]) {
-        self.name = name
+    init(title: String, logo: String, pngLogo: String, address: String, city: String, state: String, phone: String, latitude: String, longitude: String, hours: [String], popularItems: [[String]], budgetItems: [[String]]) {
+        self.title = title
         self.logo = logo
         self.pngLogo = pngLogo
         self.address = address
         self.city = city
         self.state = state
         self.phone = phone
-        self.latitude = latitude
-        self.longitude = longitude
         self.hours = hours
         self.popularItems = popularItems
         self.budgetItems = budgetItems
+        self.latitude = latitude
+        self.longitude = longitude
+        self.coordinate = CLLocationCoordinate2D(latitude: Double(latitude)!, longitude: Double(longitude)!)
     }
     
     var distance: Double?

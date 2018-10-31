@@ -19,8 +19,8 @@ class PlaceTableViewCell: UITableViewCell {
     func setCell(place: Place) {
         let logo = getURLImage(image: place.logo!)
         logoImageView.image = logo
-        nameLabel.text = place.name
-        distanceLabel.text = "0.4 miles away"
+        nameLabel.text = place.title
+        distanceLabel.text = "\(place.distance!) miles away"
     }
     
     
@@ -36,6 +36,12 @@ class PlaceTableViewCell: UITableViewCell {
                 urlImage = UIImage(data: data as Data)
             }
         }
-        return urlImage!
+        
+        if urlImage != nil {
+            return urlImage!
+        } else {
+            let imageNotFound = #imageLiteral(resourceName: "notFound")
+            return imageNotFound
+        }
     }
 }

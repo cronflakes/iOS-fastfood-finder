@@ -12,6 +12,9 @@ import MapKit
 
 class DisplayViewController: UIViewController, CLLocationManagerDelegate {
     
+    var distanceInMeters: Double?
+    var distanceInMiles: Double?
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -41,6 +44,8 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate {
         
         dispatchGroup.notify(queue: .main) {
             self.tableView.reloadData()
+            self.mapView.register(PlacesAnnotationMarkerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+            self.mapView.addAnnotations(self.placesArray)
         }
         
         
@@ -65,6 +70,11 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate {
         return convertedLocation
     }
     
+    func locationInverter(location: CLLocation) -> CLLocationCoordinate2D {
+        let invertedLocation: CLLocationCoordinate2D = location.coordinate
+        return invertedLocation
+    }
+    
     
     func getData() {
         dispatchGroup.enter()
@@ -75,7 +85,8 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate {
             do {
                 let places = try JSONDecoder().decode([RootClass].self, from: data!)
                 for place in places {
-                    self.placesArray.append(Place(name: place.name, logo: place.logo, pngLogo: place.pngLogo, address: place.address, city: place.city, state: place.state, phone: place.phone, latitude: place.latitude, longitude: place.longitude, hours: place.hours, popularItems: place.popularItems, budgetItems: place.budgetItems))
+                    self.placesArray.append(Place(title: place.name, logo: place.logo, pngLogo: place.pngLogo, address: place.address, city: place.city, state: place.state, phone: place.phone, latitude: place.latitude, longitude: place.longitude, hours: place.hours, popularItems: place.popularItems, budgetItems: place.budgetItems))
+                    self.sortByDistance()
                 }
             } catch {
                 print("Error occured while parsing JSON")
@@ -89,6 +100,28 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
         locationManager.stopUpdatingLocation()
         dismiss(animated: true, completion: nil)
+    }
+    
+    func calcDistance(to: CLLocation) -> Double {
+        if let location = initialLocation {
+            let fromLocation = locationConverter(location: location)
+            
+            let toLocation = locationConverter(location: to.coordinate)
+            
+            distanceInMeters = fromLocation.distance(from: toLocation)
+            distanceInMiles = distanceInMeters! / 1609.344
+            
+            return distanceInMiles!.roundTo(places: 2)
+        } else {
+            return 5.0
+        }
+
+    }
+    
+    func sortByDistance() {
+        for i in 0..<placesArray.count {
+            placesArray[i].distance = calcDistance(to: locationConverter(location: placesArray[i].coordinate))
+        }
     }
     
     
