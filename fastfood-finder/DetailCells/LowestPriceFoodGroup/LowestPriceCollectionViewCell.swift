@@ -10,6 +10,8 @@ import UIKit
 
 class LowestPriceCollectionViewCell: UICollectionViewCell {
     
+    var lowestPricePlaceCopy: Place?
+    
     let sectionTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -79,8 +81,31 @@ extension LowestPriceCollectionViewCell: UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LowestPriceFoodCellID", for: indexPath)
-        return cell
+        switch (indexPath.row) {
+        case 0:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LowestPriceFoodCellID", for: indexPath) as! LowestPriceFoodCell
+            cell.setupItemsInformation(image: (lowestPricePlaceCopy?.budgetItems[indexPath.row][1])!, name: (lowestPricePlaceCopy?.budgetItems[indexPath.row][0])!, price: (lowestPricePlaceCopy?.budgetItems[indexPath.row][2])!)
+            return cell
+        case 1:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LowestPriceFoodCellID", for: indexPath) as! LowestPriceFoodCell
+            cell.setupItemsInformation(image: (lowestPricePlaceCopy?.budgetItems[indexPath.row][1])!, name: (lowestPricePlaceCopy?.budgetItems[indexPath.row][0])!, price: (lowestPricePlaceCopy?.budgetItems[indexPath.row][2])!)
+            return cell
+        case 2:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LowestPriceFoodCellID", for: indexPath) as! LowestPriceFoodCell
+            cell.setupItemsInformation(image: (lowestPricePlaceCopy?.budgetItems[indexPath.row][1])!, name: (lowestPricePlaceCopy?.budgetItems[indexPath.row][0])!, price: (lowestPricePlaceCopy?.budgetItems[indexPath.row][2])!)
+            return cell
+        case 3:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LowestPriceFoodCellID", for: indexPath) as! LowestPriceFoodCell
+            cell.setupItemsInformation(image: (lowestPricePlaceCopy?.budgetItems[indexPath.row][1])!, name: (lowestPricePlaceCopy?.budgetItems[indexPath.row][0])!, price: (lowestPricePlaceCopy?.budgetItems[indexPath.row][2])!)
+            return cell
+        case 4:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LowestPriceFoodCellID", for: indexPath) as! LowestPriceFoodCell
+            cell.setupItemsInformation(image: (lowestPricePlaceCopy?.budgetItems[indexPath.row][1])!, name: (lowestPricePlaceCopy?.budgetItems[indexPath.row][0])!, price: (lowestPricePlaceCopy?.budgetItems[indexPath.row][2])!)
+            return cell
+        default:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LowestPriceFoodCellID", for: indexPath)
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

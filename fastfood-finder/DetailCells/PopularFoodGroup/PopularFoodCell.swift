@@ -20,7 +20,6 @@ class PopularFoodCell: UICollectionViewCell {
     }()
     
     let foodLabel: UILabel = {
-        
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "Avenir Next", size: 14)
@@ -66,7 +65,8 @@ class PopularFoodCell: UICollectionViewCell {
         foodPrice.topAnchor.constraint(equalTo: foodLabel.bottomAnchor).isActive = true
         foodPrice.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         foodPrice.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        foodImage.widthAnchor.constraint(equalToConstant: 130).isActive = true
+        foodPrice.widthAnchor.constraint(equalToConstant: 130).isActive = true
+
         
     }
     

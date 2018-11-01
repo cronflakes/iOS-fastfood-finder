@@ -11,6 +11,7 @@ import MapKit
 
 
 class SlideOutBar: NSObject {
+
     
     let backgroundShader = UIView()
     
@@ -24,13 +25,7 @@ class SlideOutBar: NSObject {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 0.736515411)
-        return collectionView
-    }()
-    
-    let bottomCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .red
+        collectionView.isPrefetchingEnabled = true
         return collectionView
     }()
     
@@ -72,14 +67,12 @@ class SlideOutBar: NSObject {
     }
     
     
+    
     override init() {
         super.init()
         
-        
         collectionView.delegate = self
         collectionView.dataSource = self
-        bottomCollectionView.delegate = self
-        bottomCollectionView.dataSource = self
         collectionView.register(PhoneCollectionViewCell.self, forCellWithReuseIdentifier: "PhoneCellID")
         collectionView.register(MapCollectionViewCell.self, forCellWithReuseIdentifier: "MapCellID")
         collectionView.register(HoursCollectionViewCell.self, forCellWithReuseIdentifier: "HoursCellID")
@@ -111,6 +104,7 @@ class SlideOutBar: NSObject {
         }
     }
     
+
     func openMapApp(lat: CLLocationDegrees, long: CLLocationDegrees) {
         let location = CLLocationCoordinate2D(latitude: lat, longitude: long)
         let regionSpan = MKCoordinateRegion(center: location, latitudinalMeters: 1000, longitudinalMeters: 1000)
@@ -123,6 +117,8 @@ class SlideOutBar: NSObject {
     }
     
     func placeTapped() {
+        self.collectionView.reloadData()
+ 
         if let window = UIApplication.shared.keyWindow {
             backgroundShader.backgroundColor = UIColor(white: 0, alpha: 0.6)
             backgroundShader.frame = window.frame
@@ -142,6 +138,7 @@ class SlideOutBar: NSObject {
                 self.collectionView.frame = CGRect(x: 0, y: 260, width: width, height: self.collectionView.frame.height)
             }, completion: nil)
         }
+
     }
     
     @objc func hideSlideOutBar() {

@@ -58,10 +58,10 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate {
             initialLocation = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
             let region = MKCoordinateRegion(center: locationConverter(location: initialLocation!).coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
             self.mapView.setRegion(region, animated: true)
+            self.tableView.reloadData()
         } else { print("Unable to find location") }
     }
    
-    
     func locationConverter(location: CLLocationCoordinate2D) -> CLLocation  {
         let lat: CLLocationDegrees = location.latitude
         let long: CLLocationDegrees = location.longitude

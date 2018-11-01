@@ -14,7 +14,6 @@ class LowestPriceFoodCell: UICollectionViewCell {
     let foodImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "chicfilaentree")
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 16
         imageView.layer.masksToBounds = true
@@ -25,7 +24,6 @@ class LowestPriceFoodCell: UICollectionViewCell {
         
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Chicken Sandwich"
         label.font = UIFont(name: "Avenir Next", size: 14)
         return label
     }()
@@ -33,7 +31,6 @@ class LowestPriceFoodCell: UICollectionViewCell {
     let foodPrice: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "$5.99"
         label.font = UIFont(name: "Avenir Next", size: 12)
         return label
     }()
@@ -44,6 +41,12 @@ class LowestPriceFoodCell: UICollectionViewCell {
         setupDisplayCell()
     }
     
+    func setupItemsInformation(image: String, name: String, price: String) {
+        let uploadedImage = image
+        foodImage.image = getURLImage(image: uploadedImage)
+        foodLabel.text = name
+        foodPrice.text = "$\(price)"
+    }
     
     func setupDisplayCell() {
 
@@ -59,16 +62,34 @@ class LowestPriceFoodCell: UICollectionViewCell {
         foodLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         foodLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         foodLabel.widthAnchor.constraint(equalToConstant: 130).isActive = true
+
         
         addSubview(foodPrice)
         foodPrice.topAnchor.constraint(equalTo: foodLabel.bottomAnchor).isActive = true
         foodPrice.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         foodPrice.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        foodImage.widthAnchor.constraint(equalToConstant: 130).isActive = true
+        foodPrice.widthAnchor.constraint(equalToConstant: 130).isActive = true
+        
         
     }
     
-    
+    func getURLImage(image: String) -> UIImage {
+        var urlImage: UIImage?
+        let logo = image
+        if let url = NSURL(string: logo) {
+            if let data = NSData(contentsOf: url as URL) {
+                urlImage = UIImage(data: data as Data)
+            }
+        }
+        
+        if urlImage != nil {
+            return urlImage!
+        } else {
+            let imageNotFound = #imageLiteral(resourceName: "notFound")
+            return imageNotFound
+        }
+        
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -33,10 +33,13 @@ extension SlideOutBar: UICollectionViewDelegateFlowLayout, UICollectionViewDeleg
             return cell
         case 3:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularCellID", for: indexPath) as! PopularCollectionViewCell
-            cell.place = place
+            cell.popularPlaceCopy = place
+            cell.popularFoodCollectionView.reloadData()
             return cell
         case 4:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LowestPriceCellID", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LowestPriceCellID", for: indexPath) as! LowestPriceCollectionViewCell
+            cell.lowestPricePlaceCopy = place
+            cell.lowestPriceCollectionView.reloadData()
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhoneCellID", for: indexPath)
@@ -50,9 +53,9 @@ extension SlideOutBar: UICollectionViewDelegateFlowLayout, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch(indexPath.row) {
         case 3:
-            return CGSize(width: collectionView.frame.width, height: 205)
+            return CGSize(width: collectionView.frame.width, height: 195) // was 205
         case 4:
-            return CGSize(width: collectionView.frame.width, height: 205)
+            return CGSize(width: collectionView.frame.width, height: 195) //was 205
         default:
             return CGSize(width: collectionView.frame.width, height: 50)
         }
