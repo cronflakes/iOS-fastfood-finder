@@ -62,7 +62,7 @@ class PopularCollectionViewCell: UICollectionViewCell {
         popularFoodCollectionView.topAnchor.constraint(equalTo: sectionTitle.bottomAnchor).isActive = true
         popularFoodCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         popularFoodCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        popularFoodCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        popularFoodCollectionView.heightAnchor.constraint(equalToConstant: 170).isActive = true
         
     }
     
@@ -109,7 +109,7 @@ extension PopularCollectionViewCell: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 140, height: 230)
+        return CGSize(width: 140, height: 160)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

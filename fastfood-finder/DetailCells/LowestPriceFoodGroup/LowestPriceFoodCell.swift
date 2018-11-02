@@ -52,7 +52,7 @@ class LowestPriceFoodCell: UICollectionViewCell {
 
         
         addSubview(foodImage)
-        foodImage.topAnchor.constraint(equalTo: topAnchor, constant: 30).isActive = true
+        foodImage.topAnchor.constraint(equalTo: topAnchor, constant: 3).isActive = true
         foodImage.widthAnchor.constraint(equalToConstant: 100).isActive = true
         foodImage.heightAnchor.constraint(equalToConstant: 100).isActive = true
         foodImage.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true

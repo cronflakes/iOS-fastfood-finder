@@ -53,9 +53,9 @@ extension SlideOutBar: UICollectionViewDelegateFlowLayout, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch(indexPath.row) {
         case 3:
-            return CGSize(width: collectionView.frame.width, height: 195) // was 205
+            return CGSize(width: collectionView.frame.width, height: 205) // was 205
         case 4:
-            return CGSize(width: collectionView.frame.width, height: 195) //was 205
+            return CGSize(width: collectionView.frame.width, height: 205) //was 205
         default:
             return CGSize(width: collectionView.frame.width, height: 50)
         }

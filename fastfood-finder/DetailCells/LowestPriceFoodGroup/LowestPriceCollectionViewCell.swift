@@ -59,7 +59,7 @@ class LowestPriceCollectionViewCell: UICollectionViewCell {
         lowestPriceCollectionView.topAnchor.constraint(equalTo: sectionTitle.bottomAnchor).isActive = true
         lowestPriceCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         lowestPriceCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        lowestPriceCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        lowestPriceCollectionView.heightAnchor.constraint(equalToConstant: 170).isActive = true
         
         
     }
@@ -109,7 +109,7 @@ extension LowestPriceCollectionViewCell: UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 140, height: 210)
+        return CGSize(width: 140, height: 160)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
