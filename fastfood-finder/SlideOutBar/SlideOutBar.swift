@@ -11,7 +11,11 @@ import MapKit
 
 
 class SlideOutBar: NSObject {
-
+    
+    let now = Date()
+    var components = DateComponents()
+    var dayOfTheWeek: Int?
+    
     
     let backgroundShader = UIView()
     
@@ -32,6 +36,7 @@ class SlideOutBar: NSObject {
     let logo: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
@@ -63,6 +68,7 @@ class SlideOutBar: NSObject {
             if let address = place?.address {
                 addressLabel.text = address
             }
+            
         }
     }
     
@@ -70,6 +76,9 @@ class SlideOutBar: NSObject {
     
     override init() {
         super.init()
+        
+        let calendar = Calendar(identifier: .gregorian)
+        dayOfTheWeek = calendar.component(.weekday, from: now)
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -128,7 +137,7 @@ class SlideOutBar: NSObject {
             window.addSubview(header)
             window.addSubview(collectionView)
             
-            let width: CGFloat = window.frame.width * 0.80
+            let width: CGFloat = window.frame.width * 0.85
             header.frame = CGRect(x: -width, y: 0, width: width, height: 260)
             collectionView.frame = CGRect(x: -width, y: 260, width: width, height: window.frame.height)
             
@@ -161,8 +170,12 @@ class SlideOutBar: NSObject {
                 urlImage = UIImage(data: data as Data) //if the image is a broken link from mongoDB this will come up nil
             }
         }
+        
+        if urlImage != nil {
+            return urlImage!
+        } else { return UIImage(imageLiteralResourceName: "notFound")}
 
-        return urlImage!
+        
     }
     
 }

@@ -15,7 +15,7 @@ public struct RootClass: Decodable {
     public var address : String!
     public var budgetItems : [[String]]!
     public var city : String!
-    public var hours : [String]!
+    public var hours : [[String]]!
     public var latitude : String!
     public var logo : String!
     public var longitude : String!

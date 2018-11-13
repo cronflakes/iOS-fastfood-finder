@@ -10,15 +10,15 @@ import UIKit
 
 class PhoneCollectionViewCell: UICollectionViewCell {
     
-    var number: String?
-    
-    var place: Place? {
-        didSet {
-            if let phoneNumber = place?.phone {
-                phoneNumberLabel.text = phoneNumber
-            }
-        }
-    }
+//    var number: String?
+//    
+//    var place: Place? {
+//        didSet {
+//            if let phoneNumber = place?.phone {
+//                phoneNumberLabel.text = phoneNumber
+//            }
+//        }
+//    }
 
     let phoneLogo: UIImageView = {
         let imageView = UIImageView()

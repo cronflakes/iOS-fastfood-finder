@@ -56,7 +56,7 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locationManager.location?.coordinate {
             initialLocation = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-            let region = MKCoordinateRegion(center: locationConverter(location: initialLocation!).coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+            let region = MKCoordinateRegion(center: locationConverter(location: initialLocation!).coordinate, latitudinalMeters: 1200, longitudinalMeters: 1200)
             self.mapView.setRegion(region, animated: true)
             self.tableView.reloadData()
         } else { print("Unable to find location") }
@@ -78,7 +78,7 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate {
     
     func getData() {
         dispatchGroup.enter()
-        let url = "http://localhost:3000/locations/63123"
+        let url = "http://localhost:3000/locations"
         let urlObject = URL(string: url)
         
         URLSession.shared.dataTask(with: urlObject!) { (data, response, error) in
@@ -122,6 +122,9 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate {
         for i in 0..<placesArray.count {
             placesArray[i].distance = calcDistance(to: locationConverter(location: placesArray[i].coordinate))
         }
+
+        placesArray.sort { ($0.distance ?? 0) < ($1.distance ?? 0) }
+        
     }
     
     

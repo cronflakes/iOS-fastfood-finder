@@ -12,6 +12,9 @@ import MapKit
 
 extension SlideOutBar: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5;
     }
@@ -29,7 +32,8 @@ extension SlideOutBar: UICollectionViewDelegateFlowLayout, UICollectionViewDeleg
             cell.addressLocationLabel.text = place?.address
             return cell
         case 2:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HoursCellID", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HoursCellID", for: indexPath) as! HoursCollectionViewCell
+            cell.getTime(closingTime: Int((place?.hours[dayOfTheWeek!][1])!)!, openingTime: Int((place?.hours[dayOfTheWeek!][0])!)!)
             return cell
         case 3:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularCellID", for: indexPath) as! PopularCollectionViewCell
