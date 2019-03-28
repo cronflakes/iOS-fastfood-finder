@@ -78,7 +78,7 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate {
     
     func getData() {
         dispatchGroup.enter()
-        let url = "http://localhost:3000/locations"
+        let url = "http://localhost:4000/locations"
         let urlObject = URL(string: url)
         
         URLSession.shared.dataTask(with: urlObject!) { (data, response, error) in
